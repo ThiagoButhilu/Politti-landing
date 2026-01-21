@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* Fonte para títulos */
+.font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
