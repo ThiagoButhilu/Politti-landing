@@ -6,7 +6,7 @@ interface CarouselProps {
   patternImage: string;
 }
 
-export const Carousel = ({ images, logo, patternImage }: CarouselProps) => {
+export const Carousel = ({ images, logo }: CarouselProps) => {
   return (
     <div id="default-carousel" className="relative h-[500px] md:h-[650px] w-full overflow-hidden">
       {/* Background com malha de listras verticais rosa */}
