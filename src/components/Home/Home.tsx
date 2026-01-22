@@ -5,7 +5,7 @@ import { Award, Users } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Image paths - using public folder paths
-const sweet = '/ensaios/WhatsApp Image 2025-06-23 at 18.48.03 (1).jpeg';
+const sweet = '/assets/banners/cardapio/new-bolo.jpeg';
 const doce = '/ensaios/galery/WhatsApp Image 2025-06-23 at 18.48.45 (1).jpeg';
 const especial = '/ensaios/WhatsApp Image 2025-06-23 at 18.51.48.jpeg';
 const profile = '/profile.jpg';
@@ -94,16 +94,17 @@ const AboutMe = () => {
                 <div>
                   <h3 className="text-2xl font-serif text-slate-800 mb-4">Minha Jornada Doce</h3>
                   <p className="text-slate-700 leading-relaxed">
-                    Olá! Sou a Chef Politti, e minha paixão pela confeitaria começou ainda na infância, 
-                    observando minha avó preparar doces tradicionais na cozinha de casa. O que começou 
-                    como curiosidade se transformou em uma verdadeira vocação.
+                    Olá, sou a Anna Politti! Minha paixão pela confeitaria começou ainda na escola, 
+                    quando tudo era apenas um hobby. Mas quando tive meu filho, essa paixão se transformou 
+                    em algo muito maior: uma forma de construir um futuro melhor para ele através dos doces.
                   </p>
                 </div>
                 <div>
                   <p className="text-slate-700 leading-relaxed">
-                    Há mais de 10 anos me dedico à arte da confeitaria artesanal, combinando receitas 
-                    familiares tradicionais com técnicas modernas e ingredientes selecionados. Cada doce 
-                    que sai da minha cozinha carrega não apenas sabor, mas também história e carinho.
+                    Desde 2019, me dedico integralmente à confeitaria, levando amor em forma de doces 
+                    para meus clientes. Cada etapa do processo é feita com carinho e dedicação, desde a 
+                    seleção dos ingredientes até a apresentação final. Cada doce que sai da minha cozinha 
+                    carrega não apenas sabor, mas também história, amor e o sonho de um futuro melhor.
                   </p>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-6 pt-6">
@@ -112,7 +113,7 @@ const AboutMe = () => {
                       <Award className="w-6 h-6 text-sky-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-slate-800 mb-1">+10 Anos</h4>
+                      <h4 className="font-semibold text-slate-800 mb-1">+7 Anos</h4>
                       <p className="text-sm text-slate-600">de experiência em confeitaria artesanal</p>
                     </div>
                   </div>
@@ -300,10 +301,11 @@ const MenuSession = () => {
                 Bolos únicos e personalizados para ocasiões especiais. Desde sabores clássicos até criações exclusivas.
               </p>
               <ul className="text-sm text-slate-600 space-y-1">
-                <li>• Bolo de Chocolate Belga</li>
-                <li>• Red Velvet Gourmet</li>
-                <li>• Naked Cake com Frutas</li>
-                <li>• Bolo de Cenoura Premium</li>
+                <li>• Dois amores</li>
+                <li>• Prestígio</li>
+                <li>• Red velvet</li>
+                <li>• Maracujá com ganache de chocolate meio amargo</li>
+                <li>• Ninho com Nutella</li>
               </ul>
             </div>
           </motion.div>
@@ -327,15 +329,15 @@ const MenuSession = () => {
               />
             </div>
             <div className="p-8">
-              <h3 className="text-xl font-semibold text-slate-800 mb-4">Doces Finos</h3>
+              <h3 className="text-xl font-semibold text-slate-800 mb-4">Docinhos de Festa</h3>
               <p className="text-slate-600 mb-4">
                 Pequenas delícias que despertam grandes sorrisos. Perfeitos para presentear ou saborear.
               </p>
               <ul className="text-sm text-slate-600 space-y-1">
-                <li>• Brigadeiros Gourmet</li>
-                <li>• Macarons Franceses</li>
-                <li>• Trufas Artesanais</li>
-                <li>• Beijinhos Premium</li>
+                <li>• Brigadeiro tradicional</li>
+                <li>• Beijinho</li>
+                <li>• Bicho de pé</li>
+                <li>• Leite ninho</li>
               </ul>
             </div>
           </motion.div>
@@ -364,10 +366,9 @@ const MenuSession = () => {
                 Criações únicas que combinam tradição e inovação para momentos verdadeiramente especiais.
               </p>
               <ul className="text-sm text-slate-600 space-y-1">
-                <li>• Pavê de Chocolate</li>
-                <li>• Cheesecake Artesanal</li>
-                <li>• Torta de Limão Siciliano</li>
-                <li>• Mousse de Maracujá</li>
+                <li>• Torta cookie Nutella</li>
+                <li>• Torta cookie red velvet</li>
+                <li>• Pudim</li>
               </ul>
             </div>
           </motion.div>
