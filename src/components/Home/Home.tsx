@@ -685,7 +685,7 @@ const PriceRow = ({ label, price }: { label: string; price: string }) => (
 
 
 const Footer = () => {
-  const whatsappNumber = '5518999999999';
+  const whatsappNumber = '5518981268295';
   const whatsappMessage = encodeURIComponent('Olá! Gostaria de fazer um pedido 😊');
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
