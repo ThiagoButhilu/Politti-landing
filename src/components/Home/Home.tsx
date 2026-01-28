@@ -3,6 +3,7 @@ import { Carousel } from './Carousel';
 import { Galery } from './Galery';
 import { Award, Users } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Analytics } from "@vercel/analytics/next"
 
 // Image paths - using public folder paths
 const sweet = '/assets/banners/cardapio/new-bolo.jpeg';
@@ -768,6 +769,7 @@ const Footer = () => {
 export default function Home() {
   return (
     <main className='w-full mx-auto px-0'>
+      <Analytics />
       <Carousel images={carouselImages} logo={logoImage} patternImage={patternImage}/>
       <div className='bg-white mb-12 py-8'>
         <Test/>
