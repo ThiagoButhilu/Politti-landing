@@ -3,7 +3,7 @@ import { Carousel } from './Carousel';
 import { Galery } from './Galery';
 import { Award, Users } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react"
 
 // Image paths - using public folder paths
 const sweet = '/assets/banners/cardapio/new-bolo.jpeg';
