@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { Carousel } from './Carousel';
 import { Galery } from './Galery';
+import { ContactForm } from './ContactForm';
 import { Award, Users } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from '@vercel/analytics/react'
+
+const easeOut = [0.22, 1, 0.36, 1] as const;
 
 // Image paths - using public folder paths
 const sweet = '/assets/banners/cardapio/new-bolo.jpeg';
@@ -37,24 +40,22 @@ const galleryImages = [
 
 const AboutMe = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-white/80 to-sky-50/80 backdrop-blur-sm">
+    <section className="py-20 bg-gradient-to-br from-white to-sky-50">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <motion.div 
             className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.4, ease: easeOut }}
           >
-            <motion.img 
+            <img 
               src={logoImage} 
               alt="The Politti's Logo" 
               className="h-20 mx-auto mb-6"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              loading="lazy"
+              decoding="async"
             />
             <h2 className="text-4xl font-serif text-slate-800 mb-4">Sobre mim</h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
@@ -65,31 +66,27 @@ const AboutMe = () => {
             {/* Photo placeholder */}
             <motion.div 
               className="order-2 lg:order-1"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.4, ease: easeOut }}
             >
               <div className="relative">
-                <motion.div 
-                  className="w-full h-96 bg-gradient-to-br from-sky-100 to-indigo-100 rounded-2xl shadow-xl flex items-center overflow-hidden justify-center"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
-                >
+                <div className="w-full h-96 bg-gradient-to-br from-sky-100 to-indigo-100 rounded-2xl shadow-xl flex items-center overflow-hidden justify-center">
                   <div className="text-center">
-                    <img width={600} height={500} src={profile} alt='profile' className="w-full h-full object-cover"/>
+                    <img width={600} height={500} src={profile} alt='profile' className="w-full h-full object-cover" loading="lazy" decoding="async"/>
                   </div>
-                </motion.div>
-                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-sky-600/10 rounded-full blur-xl"></div>
+                </div>
+                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-sky-600/10 rounded-full"></div>
               </div>
             </motion.div>
             {/* Story content */}
             <motion.div 
               className="order-1 lg:order-2"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.4, delay: 0.06, ease: easeOut }}
             >
               <div className="space-y-6">
                 <div>
@@ -147,7 +144,7 @@ const Test = () => {
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center center'
       }} 
-      className="pt-32 pb-20 bg-white/50 backdrop-blur-sm relative"
+      className="pt-32 pb-20 bg-white/50 relative"
     >
       {/* Gradiente no topo - transição do branco para a seção */}
       <div 
@@ -167,15 +164,15 @@ const Test = () => {
       <div className="container mx-auto px-4 relative z-10">
         <motion.div 
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.4, ease: easeOut }}
         >
           <h2 
             className="text-4xl font-serif text-slate-800 mb-4"
             style={{
-              textShadow: '0 4px 8px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1)'
+              textShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
             }}
           >
             Por que escolher The Politti&apos;s?
@@ -186,15 +183,14 @@ const Test = () => {
         </motion.div>
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <motion.div 
-            className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-white/80 backdrop-blur-sm border-sky-100 rounded-lg"
+            className="group hover:shadow-xl transition-shadow duration-300 bg-white/90 border-sky-100 rounded-lg"
             style={{
               boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 4px 6px -2px rgba(0, 0, 0, 0.1)'
             }}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.3, delay: 0.05, ease: "easeOut" }}
-            whileHover={{ y: -8 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.35, delay: 0.05, ease: easeOut }}
           >
             <div className="p-8 text-center">
               <img 
@@ -209,21 +205,22 @@ const Test = () => {
             </div>
           </motion.div>
           <motion.div 
-            className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-white/80 backdrop-blur-sm border-sky-100 rounded-lg"
+            className="group hover:shadow-xl transition-shadow duration-300 bg-white/90 border-sky-100 rounded-lg"
             style={{
               boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 4px 6px -2px rgba(0, 0, 0, 0.1)'
             }}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
-            whileHover={{ y: -8 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.35, delay: 0.1, ease: easeOut }}
           >
             <div className="p-8 text-center">
               <img 
                 src="/ensaios/WhatsApp Image 2026-01-15 at 05.08.23 (4).jpeg" 
                 alt="Qualidade Premium" 
                 className="w-16 h-16 object-contain mx-auto mb-6 rounded-sm"
+                loading="lazy"
+                decoding="async"
               />
               <h3 className="text-xl font-semibold text-slate-800 mb-4">Qualidade Premium</h3>
               <p className="text-slate-600">
@@ -232,15 +229,14 @@ const Test = () => {
             </div>
           </motion.div>
           <motion.div 
-            className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-white/80 backdrop-blur-sm border-sky-100 rounded-lg"
+            className="group hover:shadow-xl transition-shadow duration-300 bg-white/90 border-sky-100 rounded-lg"
             style={{
               boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 4px 6px -2px rgba(0, 0, 0, 0.1)'
             }}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.3, delay: 0.15, ease: "easeOut" }}
-            whileHover={{ y: -8 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.35, delay: 0.15, ease: easeOut }}
           >
             <div className="p-8 text-center">
               <img 
@@ -262,14 +258,14 @@ const Test = () => {
 
 const MenuSession = () => {
   return (
-    <section id="menu-section" className="py-20 bg-white/50 backdrop-blur-sm">
+    <section id="menu-section" className="py-20 bg-white/50">
       <div className="container mx-auto px-4">
         <motion.div 
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.4, ease: easeOut }}
         >
           <h2 className="text-4xl font-serif text-slate-800 mb-4">Nossas Especialidades</h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
@@ -278,16 +274,15 @@ const MenuSession = () => {
         </motion.div>
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           <motion.div 
-            className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 backdrop-blur-sm border-sky-100 overflow-hidden rounded-lg"
+            className="group hover:shadow-lg transition-shadow duration-300 border-sky-100 overflow-hidden rounded-lg"
             style={{
               background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 241, 242, 0.95) 100%)',
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
             }}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.3, delay: 0.05, ease: "easeOut" }}
-            whileHover={{ y: -8 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.35, delay: 0.05, ease: easeOut }}
           >
             <div className="h-48 bg-gradient-to-br from-pink-100 to-rose-100 flex items-center justify-center overflow-hidden">
               <img
@@ -311,22 +306,23 @@ const MenuSession = () => {
             </div>
           </motion.div>
           <motion.div 
-            className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 backdrop-blur-sm border-sky-100 overflow-hidden rounded-lg"
+            className="group hover:shadow-lg transition-shadow duration-300 border-sky-100 overflow-hidden rounded-lg"
             style={{
               background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 241, 242, 0.95) 100%)',
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
             }}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
-            whileHover={{ y: -8 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.35, delay: 0.1, ease: easeOut }}
           >
             <div className="h-48 bg-gradient-to-br from-pink-100 to-rose-100 flex items-center justify-center overflow-hidden">
               <img
                 src={doce}
                 className="w-full h-full object-cover"
                 alt="Bolo artesanal"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div className="p-8">
@@ -343,16 +339,15 @@ const MenuSession = () => {
             </div>
           </motion.div>
           <motion.div 
-            className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 backdrop-blur-sm border-sky-100 overflow-hidden rounded-lg"
+            className="group hover:shadow-lg transition-shadow duration-300 border-sky-100 overflow-hidden rounded-lg"
             style={{
               background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 241, 242, 0.95) 100%)',
               boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
             }}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.3, delay: 0.15, ease: "easeOut" }}
-            whileHover={{ y: -8 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.35, delay: 0.15, ease: easeOut }}
           >
             <div className="h-48 bg-gradient-to-br from-pink-100 to-rose-100 flex items-center justify-center overflow-hidden">
               <img
@@ -376,16 +371,14 @@ const MenuSession = () => {
         </div>
         <motion.div 
           className="text-center mt-12"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.4, delay: 0.15, ease: easeOut }}
         >
-          <motion.button 
-            className="bg-sky-600 hover:bg-sky-700 text-white px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300" 
+          <button 
+            className="bg-sky-600 hover:bg-sky-700 text-white px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-colors duration-200" 
             type="button"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
             onClick={() => {
               const cardapioSection = document.getElementById('cardapio-section');
               if (cardapioSection) {
@@ -394,7 +387,7 @@ const MenuSession = () => {
             }}
           >
             Ver Cardápio Completo
-          </motion.button>
+          </button>
         </motion.div>
       </div>
     </section>
@@ -468,18 +461,17 @@ const CardapioSection = () => {
         {/* HEADER */}
         <motion.div
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.4, ease: easeOut }}
         >
-          <motion.img 
+          <img 
             src={logoImage} 
             alt="The Politti's Logo" 
             className="h-20 md:h-24 mx-auto mb-6"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.3, delay: 0.1 }}
+            loading="lazy"
+            decoding="async"
           />
           <h2 className="text-4xl md:text-5xl font-semibold text-white mb-3">
             Cardápio
@@ -513,15 +505,15 @@ const CardapioSection = () => {
         <AnimatePresence mode="wait">
           <motion.div
             key={tab}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.4 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.25, ease: easeOut }}
             className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start"
           >
 
             {/* TEXTO */}
-            <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-10 shadow-2xl border border-white/20">
+            <div className="bg-white rounded-3xl p-10 shadow-2xl border border-white/20">
               {tab === 'tradicionais' && (
                 <>
                   <h3 className="text-3xl mb-6" style={{ color: '#D3658A' }}>
@@ -585,17 +577,17 @@ const CardapioSection = () => {
             <div className="relative">
               {currentImages.length > 0 && (
                 <>
-                  <div className="relative w-full rounded-2xl overflow-hidden border-2 border-white/40 bg-white/90 backdrop-blur-sm shadow-xl">
+                  <div className="relative w-full rounded-2xl overflow-hidden border-2 border-white/40 bg-white shadow-xl">
                     <AnimatePresence mode="wait">
                       <motion.img
                         key={currentImageIndex}
                         src={currentImages[currentImageIndex]}
                         alt={`${tab} ${currentImageIndex + 1}`}
                         className="w-full h-auto object-cover"
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -50 }}
-                        transition={{ duration: 0.3 }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
                       />
                     </AnimatePresence>
                     
@@ -718,13 +710,13 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-pink-400 transition-colors">
-                    Sobre Nós
+                  <a href="#contato" className="hover:text-pink-400 transition-colors">
+                    Contato
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-pink-400 transition-colors">
-                    Galeria
+                  <a href="#cardapio-section" className="hover:text-pink-400 transition-colors">
+                    Cardápio Completo
                   </a>
                 </li>
               </ul>
@@ -778,6 +770,7 @@ export default function Home() {
         <Galery images={galleryImages}/>
       </div>
       <CardapioSection/>
+      <ContactForm/>
       <Footer/>
     </main>
   );

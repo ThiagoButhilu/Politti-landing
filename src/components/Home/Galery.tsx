@@ -20,7 +20,7 @@ export const Galery = ({ images }: GaleryProps) => {
   }, [current, total]);
 
   return (
-    <section className="py-20 bg-gradient-to-br from-white/80 to-sky-50/80 backdrop-blur-sm">
+    <section className="py-20 bg-gradient-to-br from-white to-sky-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-serif text-slate-800 mb-4">Nossos Momentos Doces</h2>
@@ -37,7 +37,9 @@ export const Galery = ({ images }: GaleryProps) => {
                 <img
                   src={images[current]}
                   alt={`Foto ${current + 1}`}
-                  className="w-full h-full object-cover transition-all duration-500"
+                  className="w-full h-full object-cover transition-opacity duration-300"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <button
@@ -100,7 +102,7 @@ export const Galery = ({ images }: GaleryProps) => {
                   Seguir @thepolittis
                 </a>
               </div>
-              <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 shadow-lg">
+              <div className="bg-white rounded-2xl p-6 shadow-lg">
                 <p className="text-sm text-slate-600 mb-2">📱 Instagram oficial</p>
                 <p className="text-xl font-semibold text-slate-800">@thepolittis</p>
                 <p className="text-sm text-slate-600 mt-2">Mais de 1.000 seguidores apaixonados por doces!</p>
