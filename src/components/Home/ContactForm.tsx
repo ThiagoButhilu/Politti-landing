@@ -2,7 +2,6 @@ import { useState, type FormEvent } from 'react';
 import { motion } from 'framer-motion';
 
 const WHATSAPP_NUMBER = '5518981268295';
-const easeOut = [0.22, 1, 0.36, 1] as const;
 
 type FormStatus = 'idle' | 'sending' | 'success' | 'error';
 
@@ -24,7 +23,7 @@ export const ContactForm = () => {
 
   const buildWhatsAppUrl = () => {
     const text = [
-      'Olá! Vim pelo site da The Politti\'s 😊',
+      "Olá! Vim pelo site da The Politti's 😊",
       '',
       `Nome: ${name}`,
       email ? `E-mail: ${email}` : null,
@@ -80,10 +79,10 @@ export const ContactForm = () => {
       <div className="container mx-auto px-4">
         <motion.div
           className="text-center mb-12"
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.4, ease: easeOut }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.4, ease: 'easeOut' }}
         >
           <h2 className="text-4xl font-serif text-slate-800 mb-4">Fale conosco</h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
@@ -94,10 +93,10 @@ export const ContactForm = () => {
         <motion.form
           onSubmit={handleSubmit}
           className="max-w-2xl mx-auto bg-white rounded-3xl shadow-xl border border-rose-100 p-6 md:p-10 space-y-5"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.45, delay: 0.08, ease: easeOut }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.4, delay: 0.1, ease: 'easeOut' }}
         >
           <div className="grid sm:grid-cols-2 gap-5">
             <label className="block">
@@ -174,13 +173,15 @@ export const ContactForm = () => {
                 ? 'Seus dados serão enviados com segurança.'
                 : 'Ao enviar, abrimos o WhatsApp com sua mensagem pronta.'}
             </p>
-            <button
+            <motion.button
               type="submit"
               disabled={status === 'sending'}
-              className="bg-pink-500 hover:bg-pink-600 disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold px-8 py-3 rounded-full shadow-md transition-colors duration-200"
+              className="bg-pink-500 hover:bg-pink-600 disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold px-8 py-3 rounded-full shadow-md"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
             >
               {status === 'sending' ? 'Enviando...' : 'Enviar mensagem'}
-            </button>
+            </motion.button>
           </div>
         </motion.form>
       </div>
